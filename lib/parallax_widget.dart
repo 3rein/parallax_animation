@@ -152,7 +152,7 @@ class _ParallaxWidgetState extends State<ParallaxWidget> {
       RenderObject? parallaxAreaRenderObject) {
     // The widget is not rendered if the context is null, so we skip all the computations
     if (parallaxAreaRenderObject == null) {
-      return null;
+      return;
     }
 
     final parallaxOffset = _getParallaxOffset(parallaxAreaRenderObject);
