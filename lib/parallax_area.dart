@@ -66,7 +66,7 @@ class _ParallaxAreaState extends State<ParallaxArea> {
     );
   }
 
-  _handleEvent([ScrollNotification? event]) {
+  void _handleEvent([ScrollNotification? event]) {
     if (_listeners.isNotEmpty) {
       RenderObject? renderObject = context.findRenderObject();
       _listeners.forEach((callback) {
