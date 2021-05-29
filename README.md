@@ -5,7 +5,17 @@ A Parallax behavior for any Flutter Scrollable
 This plugin enable a parallax effect in any `Scrollable`, simply wrap your `Scrollable` in a `ParallaxArea` and use a `ParallaxWidget` inside it.
 Interactive web sample [Here](http://parallax.hatdroid.com)
  
+
+PageView Vertical           |  PageView Horizontal
+:-------------------------:|:-------------------------:
 <img src="pathToImage?raw=true" alt="An animated image of the parallax animation inside a PageView"/>
+ |  <img src="pathToImage?raw=true" alt="An animated image of the parallax animation inside a PageView"/>
+
+ListView Vertical           |  ListView Horizontal
+:-------------------------:|:-------------------------:
+<img src="pathToImage?raw=true" alt="An animated image of the parallax animation inside a PageView"/>
+ |  <img src="pathToImage?raw=true" alt="An animated image of the parallax animation inside a PageView"/>
+
 
 ## Features
 
