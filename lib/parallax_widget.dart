@@ -11,20 +11,20 @@ import 'parallax_area.dart';
 /// If no [ParallaxArea] is found this widget will simply render the [child] and the [background] without any effect.
 
 class ParallaxWidget extends StatefulWidget {
-  const ParallaxWidget(
-      {Key? key,
-      required this.child,
-      this.background,
-      this.overflowWidthFactor = 2,
-      this.overflowHeightFactor = 2,
-      this.fixedHorizontal = false,
-      this.fixedVertical = false,
-      this.inverted = false,
-      this.alignment = Alignment.center,
-      this.clipOverflow = true,
-      this.showDebugInfo = false,
-      this.parallaxPadding = const EdgeInsets.all(0)})
-      : super(key: key);
+  const ParallaxWidget({
+    Key? key,
+    required this.child,
+    this.background,
+    this.overflowWidthFactor = 2,
+    this.overflowHeightFactor = 2,
+    this.fixedHorizontal = false,
+    this.fixedVertical = false,
+    this.inverted = false,
+    this.alignment = Alignment.center,
+    this.clipOverflow = true,
+    this.showDebugInfo = false,
+    this.parallaxPadding = EdgeInsets.zero,
+  }) : super(key: key);
 
   /// Main child to be displayed
   /// the size of the background will be matched to this child
@@ -36,20 +36,27 @@ class ParallaxWidget extends StatefulWidget {
   final Widget? background;
 
   /// The width multiplier factor, the background will be as larger as the child
-  /// multiplied by the overflowWidthFactor
+  /// multiplied by the overflowWidthFactor.
+  /// increasing this value will increase the parallax effect during horizontal scroll
+  /// Min value 1, default value 2
   final double overflowWidthFactor;
 
-  /// The height multiplier factor, the background will be as higher as the child
-  /// multiplied by the overflowWidthFactor
+  /// The height multiplier factor, the background will be as taller as the child
+  /// multiplied by the overflowHeightFactor
+  /// increasing this value will increase the parallax effect during vertical scroll
+  /// Min value 1, default value 2
   final double overflowHeightFactor;
 
   /// if true the parallax effect will be disabled for the horizontal Axis
+  /// default value false
   final bool fixedHorizontal;
 
   /// if true the parallax effect will be disabled for the vertical Axis
+  /// default value false
   final bool fixedVertical;
 
   /// if true the parallax effect will be inverted for both Axis
+  /// default value false
   final bool inverted;
 
   /// define the point where this Parallax should be centered
@@ -57,13 +64,17 @@ class ParallaxWidget extends StatefulWidget {
   /// if you set the Alignment.topLeft, the Background widget will be centered
   /// when the ParallaxWidget top and left will be aligned with the top and the
   /// left of the ParallaxArea parent.
+  /// default value [Alignment.center]
   final Alignment alignment;
 
   /// define if the overflow should be clipped
+  /// if not clipped the content will overflow outside the ParallaxWidget
+  /// default value true
   final bool clipOverflow;
 
   /// give the parallax a general padding, used to avoid pixel
   /// bleeding if the content doesn't cover completely the viewport
+  /// default value [EdgeInsets.zero]
   final EdgeInsets parallaxPadding;
 
   ///show some debug info like positioning on the currentParallax boundary and overflows
@@ -82,6 +93,11 @@ class _ParallaxWidgetState extends State<ParallaxWidget> {
   @override
   void initState() {
     super.initState();
+    if (widget.overflowWidthFactor < 1 || widget.overflowHeightFactor < 1) {
+      throw ArgumentError(
+          "Overflows minimum value is 1, current overflow values(W: ${widget.overflowWidthFactor} - H: ${widget.overflowHeightFactor})");
+    }
+
     WidgetsBinding.instance?.addPostFrameCallback((_) {
       parallaxListener = _computeParallaxOffset;
       parallaxArea?.addListener(parallaxListener);
@@ -91,6 +107,9 @@ class _ParallaxWidgetState extends State<ParallaxWidget> {
   @override
   void didChangeDependencies() {
     parallaxArea = ParallaxArea.of(context);
+    if (parallaxArea == null) {
+      throw ArgumentError("No ParallaxArea found over this widget in the tree");
+    }
     super.didChangeDependencies();
   }
 
@@ -125,8 +144,7 @@ class _ParallaxWidgetState extends State<ParallaxWidget> {
                     child: SizedBox.fromSize(
                       size: Size(maxWidth, maxHeight),
                       child: widget.background,
-                    )
-                );
+                    ));
               },
             ),
           ),
