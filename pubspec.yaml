@@ -1,7 +1,7 @@
 name: parallax_animation
 description: A new Flutter package project.
 version: 0.0.1
-homepage: 3Rein.com
+homepage: https://www.3rein.com
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
