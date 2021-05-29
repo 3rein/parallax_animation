@@ -1,6 +1,7 @@
 name: parallax_animation
 description: A new Flutter package project.
 version: 0.0.1
+author: Carlo Lucera
 homepage: https://www.3rein.com
 
 environment:
