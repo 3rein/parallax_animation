@@ -8,13 +8,13 @@ Interactive web sample [Here](http://parallax.hatdroid.com)
 
 PageView Vertical           |  PageView Horizontal
 :-------------------------:|:-------------------------:
-<img src="pathToImage?raw=true" alt="An animated image of the parallax animation inside a PageView"/>
- |  <img src="pathToImage?raw=true" alt="An animated image of the parallax animation inside a PageView"/>
+<img src="https://github.com/CLucera/parallax_animation/blob/develop/doc/pageview_vertical.gif?raw=true" alt="An animated image of the parallax animation inside a PageView with vertical scroll"/>
+ |  <img src="https://github.com/CLucera/parallax_animation/blob/develop/doc/pageview_horizontal.gif?raw=true" alt="An animated image of the parallax animation inside a PageView with horizontal scroll"/>
 
 ListView Vertical           |  ListView Horizontal
 :-------------------------:|:-------------------------:
-<img src="pathToImage?raw=true" alt="An animated image of the parallax animation inside a PageView"/>
- |  <img src="pathToImage?raw=true" alt="An animated image of the parallax animation inside a PageView"/>
+<img src="https://github.com/CLucera/parallax_animation/blob/develop/doc/listview_vertical.gif?raw=true" alt="An animated image of the parallax animation inside a ListView with vertical scroll"/>
+ |  <img src="https://github.com/CLucera/parallax_animation/blob/develop/doc/listview_horizontal.gif?raw=true" alt="An animated image of the parallax animation inside a Listview with horizontal scroll"/>
 
 
 ## Features
