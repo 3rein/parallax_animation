@@ -41,7 +41,7 @@ class ParallaxItem extends StatelessWidget {
         ),
       ),
       background: Image.asset(
-        "assets/background_${index % 3}.jpg",
+        "assets/background_${index % 4}.jpg",
         fit: BoxFit.cover,
       ),
     );

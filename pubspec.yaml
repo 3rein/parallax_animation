@@ -1,7 +1,6 @@
 name: parallax_animation
-description: A new Flutter package project.
-version: 0.0.1
-author: Carlo Lucera
+description: Adds parallax effects to any scrollable.
+version: 0.0.2
 homepage: https://www.3rein.com
 
 environment:

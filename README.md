@@ -57,48 +57,56 @@ ParallaxArea(
   }),
 ),
 ```
-
 ## Parallax properties
 
-`Widget child;`
+### Widget child
+
 Main child to be displayed, the size of the background will be matched to this child.
 
-`Widget? background;`
+### Widget? background
 The widget to be placed in the background, it will be contained in a `OverflowBox` and sized according to `overflowWidthFactor` and `overflowHeightFactor`.
 
-`double overflowWidthFactor;`
+### double overflowWidthFactor
 The width multiplier factor, the background will be as larger as the child multiplied by the `overflowWidthFactor`, increasing this value will increase the parallax effect during horizontal scroll.
+
 _Min value 1, default value 2._
 
-`double overflowHeightFactor;`
+### double overflowHeightFactor
 The height multiplier factor, the background will be as taller as the child multiplied by the `overflowHeightFactor`, increasing this value will increase the parallax effect during vertical scroll.
+
 _Min value 1, default value 2._
 
 
-`bool fixedHorizontal;`
+### bool fixedHorizontal
 If true the parallax effect will be disabled for the horizontal Axis. 
+
 _Default value false._
 
-`bool fixedVertical;`
+### bool fixedVertical
 If true the parallax effect will be disabled for the vertical Axis. 
+
 _Default value false._
 
-`bool inverted;`
+### bool inverted
 If true the parallax effect will be inverted for both Axis. 
+
 _Default value false._
 
-`Alignment alignment;`
+### Alignment alignment
 Define the point where this Parallax should be centered The aligment will be relative to the parent ParallaxArea.
 For example if you set the Alignment.topLeft, the Background widget will be centered when the ParallaxWidget top and left will be aligned with the top and the left of the ParallaxArea parent.
+
 _default value `Alignment.center`._
 
-`bool clipOverflow;`
+### bool clipOverflow
 Define if the overflow should be clipped, if not clipped the content will overflow outside the ParallaxWidget.
+
 _Default value true._
 
-`EdgeInsets parallaxPadding;`
+### EdgeInsets parallaxPadding
 Give the parallax a general padding, used to avoid pixel bleeding if the content doesn't cover completely the viewport.
+
 _Default value `EdgeInsets.zero`._
 
-`bool showDebugInfo;`
+### bool showDebugInfo
 Show some debug info like positioning on the current parallax boundary and overflows.
